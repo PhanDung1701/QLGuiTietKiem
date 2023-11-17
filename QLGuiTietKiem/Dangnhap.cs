@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace QLGuiTietKiem
 {
-    public partial class Form1 : Form
+    public partial class Dangnhap : Form
     {
-        public Form1()
+        public Dangnhap()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

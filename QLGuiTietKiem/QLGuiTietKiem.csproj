@@ -46,11 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Dangnhap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Dangnhap.Designer.cs">
+      <DependentUpon>Dangnhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,14 +78,23 @@
     <Compile Include="QLNhanvien.Designer.cs">
       <DependentUpon>QLNhanvien.cs</DependentUpon>
     </Compile>
-    <Compile Include="QLSotietkiem.cs">
+    <Compile Include="QLGuitietkiem.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QLSotietkiem.Designer.cs">
-      <DependentUpon>QLSotietkiem.cs</DependentUpon>
+    <Compile Include="QLGuitietkiem.Designer.cs">
+      <DependentUpon>QLGuitietkiem.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="QLRuttien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QLRuttien.Designer.cs">
+      <DependentUpon>QLRuttien.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Dangnhap.resx">
+      <DependentUpon>Dangnhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -89,6 +104,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="QLKhachang.resx">
       <DependentUpon>QLKhachang.cs</DependentUpon>
@@ -99,8 +115,11 @@
     <EmbeddedResource Include="QLNhanvien.resx">
       <DependentUpon>QLNhanvien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="QLSotietkiem.resx">
-      <DependentUpon>QLSotietkiem.cs</DependentUpon>
+    <EmbeddedResource Include="QLGuitietkiem.resx">
+      <DependentUpon>QLGuitietkiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QLRuttien.resx">
+      <DependentUpon>QLRuttien.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -114,6 +133,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\padlock %282%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

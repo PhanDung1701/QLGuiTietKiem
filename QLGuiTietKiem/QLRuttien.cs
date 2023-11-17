@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QLGuiTietKiem
 {
-    public partial class QLSotietkiem : Form
+    public partial class QLRuttien : Form
     {
-        public QLSotietkiem()
+        public QLRuttien()
         {
             InitializeComponent();
         }
