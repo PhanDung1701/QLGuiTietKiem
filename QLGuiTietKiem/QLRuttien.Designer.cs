@@ -84,7 +84,7 @@
             this.groupBox3.Size = new System.Drawing.Size(968, 306);
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Thông tin sổ tiết kiệm";
+            this.groupBox3.Text = "Thông tin rút tiền";
             // 
             // numericUpDown1
             // 
@@ -229,7 +229,7 @@
             this.groupBox2.Size = new System.Drawing.Size(969, 307);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Danh sách gửi tiền";
+            this.groupBox2.Text = "Danh sách rút tiền";
             // 
             // dtDanhsachtietkiem
             // 
