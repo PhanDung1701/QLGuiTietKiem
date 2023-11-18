@@ -62,9 +62,9 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtSdt = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.txtMK = new System.Windows.Forms.TextBox();
             this.txtHoten = new System.Windows.Forms.TextBox();
             this.txtManv = new System.Windows.Forms.TextBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -296,9 +296,9 @@
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.label13);
-            this.groupBox3.Controls.Add(this.textBox7);
+            this.groupBox3.Controls.Add(this.txtSdt);
             this.groupBox3.Controls.Add(this.textBox8);
-            this.groupBox3.Controls.Add(this.textBox10);
+            this.groupBox3.Controls.Add(this.txtMK);
             this.groupBox3.Controls.Add(this.txtHoten);
             this.groupBox3.Controls.Add(this.txtManv);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -368,6 +368,7 @@
             this.button8.TabIndex = 14;
             this.button8.Text = "Thêm";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // label8
             // 
@@ -423,12 +424,12 @@
             this.label13.TabIndex = 10;
             this.label13.Text = "Mã nhân viên";
             // 
-            // textBox7
+            // txtSdt
             // 
-            this.textBox7.Location = new System.Drawing.Point(212, 155);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(303, 27);
-            this.textBox7.TabIndex = 6;
+            this.txtSdt.Location = new System.Drawing.Point(212, 155);
+            this.txtSdt.Name = "txtSdt";
+            this.txtSdt.Size = new System.Drawing.Size(303, 27);
+            this.txtSdt.TabIndex = 6;
             // 
             // textBox8
             // 
@@ -437,12 +438,12 @@
             this.textBox8.Size = new System.Drawing.Size(265, 27);
             this.textBox8.TabIndex = 6;
             // 
-            // textBox10
+            // txtMK
             // 
-            this.textBox10.Location = new System.Drawing.Point(212, 195);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(303, 27);
-            this.textBox10.TabIndex = 6;
+            this.txtMK.Location = new System.Drawing.Point(212, 195);
+            this.txtMK.Name = "txtMK";
+            this.txtMK.Size = new System.Drawing.Size(303, 27);
+            this.txtMK.TabIndex = 6;
             // 
             // txtHoten
             // 
@@ -562,8 +563,8 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox txtSdt;
+        private System.Windows.Forms.TextBox txtMK;
         private System.Windows.Forms.TextBox txtHoten;
         private System.Windows.Forms.TextBox txtManv;
         private System.Windows.Forms.ComboBox comboBox1;
