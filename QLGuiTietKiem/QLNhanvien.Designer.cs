@@ -460,6 +460,7 @@
             // 
             // Column1
             // 
+            this.Column1.DataPropertyName = "MaNV";
             this.Column1.HeaderText = "Mã nhân viên";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
@@ -467,6 +468,7 @@
             // 
             // Column2
             // 
+            this.Column2.DataPropertyName = "HoTen";
             this.Column2.HeaderText = "Họ tên";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
@@ -474,6 +476,7 @@
             // 
             // Column3
             // 
+            this.Column3.DataPropertyName = "NgaySinh";
             this.Column3.HeaderText = "Ngày sinh";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
@@ -481,6 +484,7 @@
             // 
             // Column4
             // 
+            this.Column4.DataPropertyName = "Sdt";
             this.Column4.HeaderText = "Số điện thoại";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
@@ -488,6 +492,7 @@
             // 
             // Column5
             // 
+            this.Column5.DataPropertyName = "MK";
             this.Column5.HeaderText = "Mật khẩu";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
@@ -495,6 +500,7 @@
             // 
             // Column6
             // 
+            this.Column6.DataPropertyName = "LoaiNguoiDung";
             this.Column6.HeaderText = "Loại người dùng";
             this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
@@ -511,6 +517,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "QLNhanvien";
             this.Text = "QLNhanvien";
+            this.Load += new System.EventHandler(this.QLNhanvien_Load);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);

@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="QLGuiTietKiemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="KhachHang">
+          <Key>
+            <PropertyRef Name="MaKH" />
+          </Key>
+          <Property Name="MaKH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SoCM" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sdt" Type="varchar" MaxLength="11" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LoaiSTK">
+          <Key>
+            <PropertyRef Name="MaLoaiSo" />
+          </Key>
+          <Property Name="MaLoaiSo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenLoaiSo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LaiSuat" Type="float" Nullable="false" />
+          <Property Name="SoThang" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NhanVien">
+          <Key>
+            <PropertyRef Name="MaNV" />
+          </Key>
+          <Property Name="MaNV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NgaySinh" Type="date" Nullable="false" />
+          <Property Name="Sdt" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="MK" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LoaiNguoiDung" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SoTietKiem">
+          <Key>
+            <PropertyRef Name="MaSTK" />
+          </Key>
+          <Property Name="MaSTK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaNV" Type="int" Nullable="false" />
+          <Property Name="MaKH" Type="int" Nullable="false" />
+          <Property Name="MaLoaiSo" Type="int" Nullable="false" />
+          <Property Name="NgayTao" Type="date" />
+          <Property Name="NgayHetHan" Type="date" />
+          <Property Name="SoTienGui" Type="money" />
+          <Property Name="NgayRut" Type="date" />
+          <Property Name="SoTienRut" Type="money" />
+          <Property Name="TrangThai" Type="bit" />
+        </EntityType>
+        <Association Name="FK_SoTietKiem_KhachHang">
+          <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="1" />
+          <End Role="SoTietKiem" Type="Self.SoTietKiem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KhachHang">
+              <PropertyRef Name="MaKH" />
+            </Principal>
+            <Dependent Role="SoTietKiem">
+              <PropertyRef Name="MaKH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SoTietKiem_LoaiSTK">
+          <End Role="LoaiSTK" Type="Self.LoaiSTK" Multiplicity="1" />
+          <End Role="SoTietKiem" Type="Self.SoTietKiem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiSTK">
+              <PropertyRef Name="MaLoaiSo" />
+            </Principal>
+            <Dependent Role="SoTietKiem">
+              <PropertyRef Name="MaLoaiSo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SoTietKiem_NhanVien">
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+          <End Role="SoTietKiem" Type="Self.SoTietKiem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="MaNV" />
+            </Principal>
+            <Dependent Role="SoTietKiem">
+              <PropertyRef Name="MaNV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QLGuiTietKiemModelStoreContainer">
+          <EntitySet Name="KhachHang" EntityType="Self.KhachHang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoaiSTK" EntityType="Self.LoaiSTK" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NhanVien" EntityType="Self.NhanVien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SoTietKiem" EntityType="Self.SoTietKiem" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_SoTietKiem_KhachHang" Association="Self.FK_SoTietKiem_KhachHang">
+            <End Role="KhachHang" EntitySet="KhachHang" />
+            <End Role="SoTietKiem" EntitySet="SoTietKiem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SoTietKiem_LoaiSTK" Association="Self.FK_SoTietKiem_LoaiSTK">
+            <End Role="LoaiSTK" EntitySet="LoaiSTK" />
+            <End Role="SoTietKiem" EntitySet="SoTietKiem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SoTietKiem_NhanVien" Association="Self.FK_SoTietKiem_NhanVien">
+            <End Role="NhanVien" EntitySet="NhanVien" />
+            <End Role="SoTietKiem" EntitySet="SoTietKiem" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QLGuiTietKiemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="KhachHang">
+          <Key>
+            <PropertyRef Name="MaKH" />
+          </Key>
+          <Property Name="MaKH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SoCM" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sdt" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="SoTietKiems" Relationship="Self.FK_SoTietKiem_KhachHang" FromRole="KhachHang" ToRole="SoTietKiem" />
+        </EntityType>
+        <EntityType Name="LoaiSTK">
+          <Key>
+            <PropertyRef Name="MaLoaiSo" />
+          </Key>
+          <Property Name="MaLoaiSo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenLoaiSo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LaiSuat" Type="Double" Nullable="false" />
+          <Property Name="SoThang" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SoTietKiems" Relationship="Self.FK_SoTietKiem_LoaiSTK" FromRole="LoaiSTK" ToRole="SoTietKiem" />
+        </EntityType>
+        <EntityType Name="NhanVien">
+          <Key>
+            <PropertyRef Name="MaNV" />
+          </Key>
+          <Property Name="MaNV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NgaySinh" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Sdt" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MK" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoaiNguoiDung" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="SoTietKiems" Relationship="Self.FK_SoTietKiem_NhanVien" FromRole="NhanVien" ToRole="SoTietKiem" />
+        </EntityType>
+        <EntityType Name="SoTietKiem">
+          <Key>
+            <PropertyRef Name="MaSTK" />
+          </Key>
+          <Property Name="MaSTK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaNV" Type="Int32" Nullable="false" />
+          <Property Name="MaKH" Type="Int32" Nullable="false" />
+          <Property Name="MaLoaiSo" Type="Int32" Nullable="false" />
+          <Property Name="NgayTao" Type="DateTime" Precision="0" />
+          <Property Name="NgayHetHan" Type="DateTime" Precision="0" />
+          <Property Name="SoTienGui" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="NgayRut" Type="DateTime" Precision="0" />
+          <Property Name="SoTienRut" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="TrangThai" Type="Boolean" />
+          <NavigationProperty Name="KhachHang" Relationship="Self.FK_SoTietKiem_KhachHang" FromRole="SoTietKiem" ToRole="KhachHang" />
+          <NavigationProperty Name="LoaiSTK" Relationship="Self.FK_SoTietKiem_LoaiSTK" FromRole="SoTietKiem" ToRole="LoaiSTK" />
+          <NavigationProperty Name="NhanVien" Relationship="Self.FK_SoTietKiem_NhanVien" FromRole="SoTietKiem" ToRole="NhanVien" />
+        </EntityType>
+        <Association Name="FK_SoTietKiem_KhachHang">
+          <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="1" />
+          <End Role="SoTietKiem" Type="Self.SoTietKiem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KhachHang">
+              <PropertyRef Name="MaKH" />
+            </Principal>
+            <Dependent Role="SoTietKiem">
+              <PropertyRef Name="MaKH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SoTietKiem_LoaiSTK">
+          <End Role="LoaiSTK" Type="Self.LoaiSTK" Multiplicity="1" />
+          <End Role="SoTietKiem" Type="Self.SoTietKiem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoaiSTK">
+              <PropertyRef Name="MaLoaiSo" />
+            </Principal>
+            <Dependent Role="SoTietKiem">
+              <PropertyRef Name="MaLoaiSo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SoTietKiem_NhanVien">
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+          <End Role="SoTietKiem" Type="Self.SoTietKiem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="MaNV" />
+            </Principal>
+            <Dependent Role="SoTietKiem">
+              <PropertyRef Name="MaNV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QLGuiTietKiemEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="KhachHangs" EntityType="Self.KhachHang" />
+          <EntitySet Name="LoaiSTKs" EntityType="Self.LoaiSTK" />
+          <EntitySet Name="NhanViens" EntityType="Self.NhanVien" />
+          <EntitySet Name="SoTietKiems" EntityType="Self.SoTietKiem" />
+          <AssociationSet Name="FK_SoTietKiem_KhachHang" Association="Self.FK_SoTietKiem_KhachHang">
+            <End Role="KhachHang" EntitySet="KhachHangs" />
+            <End Role="SoTietKiem" EntitySet="SoTietKiems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SoTietKiem_LoaiSTK" Association="Self.FK_SoTietKiem_LoaiSTK">
+            <End Role="LoaiSTK" EntitySet="LoaiSTKs" />
+            <End Role="SoTietKiem" EntitySet="SoTietKiems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SoTietKiem_NhanVien" Association="Self.FK_SoTietKiem_NhanVien">
+            <End Role="NhanVien" EntitySet="NhanViens" />
+            <End Role="SoTietKiem" EntitySet="SoTietKiems" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QLGuiTietKiemModelStoreContainer" CdmEntityContainer="QLGuiTietKiemEntities">
+          <EntitySetMapping Name="KhachHangs">
+            <EntityTypeMapping TypeName="QLGuiTietKiemModel.KhachHang">
+              <MappingFragment StoreEntitySet="KhachHang">
+                <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="SoCM" ColumnName="SoCM" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="Sdt" ColumnName="Sdt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoaiSTKs">
+            <EntityTypeMapping TypeName="QLGuiTietKiemModel.LoaiSTK">
+              <MappingFragment StoreEntitySet="LoaiSTK">
+                <ScalarProperty Name="MaLoaiSo" ColumnName="MaLoaiSo" />
+                <ScalarProperty Name="TenLoaiSo" ColumnName="TenLoaiSo" />
+                <ScalarProperty Name="LaiSuat" ColumnName="LaiSuat" />
+                <ScalarProperty Name="SoThang" ColumnName="SoThang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NhanViens">
+            <EntityTypeMapping TypeName="QLGuiTietKiemModel.NhanVien">
+              <MappingFragment StoreEntitySet="NhanVien">
+                <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="Sdt" ColumnName="Sdt" />
+                <ScalarProperty Name="MK" ColumnName="MK" />
+                <ScalarProperty Name="LoaiNguoiDung" ColumnName="LoaiNguoiDung" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SoTietKiems">
+            <EntityTypeMapping TypeName="QLGuiTietKiemModel.SoTietKiem">
+              <MappingFragment StoreEntitySet="SoTietKiem">
+                <ScalarProperty Name="MaSTK" ColumnName="MaSTK" />
+                <ScalarProperty Name="MaNV" ColumnName="MaNV" />
+                <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+                <ScalarProperty Name="MaLoaiSo" ColumnName="MaLoaiSo" />
+                <ScalarProperty Name="NgayTao" ColumnName="NgayTao" />
+                <ScalarProperty Name="NgayHetHan" ColumnName="NgayHetHan" />
+                <ScalarProperty Name="SoTienGui" ColumnName="SoTienGui" />
+                <ScalarProperty Name="NgayRut" ColumnName="NgayRut" />
+                <ScalarProperty Name="SoTienRut" ColumnName="SoTienRut" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

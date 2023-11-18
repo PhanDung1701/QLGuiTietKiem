@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QLGuiTietKiem.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +21,14 @@ namespace QLGuiTietKiem
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void QLNhanvien_Load(object sender, EventArgs e)
+        {
+            QLGuiTietKiemEntities context = new QLGuiTietKiemEntities();
+
+            List<NhanVien> nvs = context.NhanViens.ToList();
+            this.dataGridView1.DataSource = nvs;
         }
     }
 }

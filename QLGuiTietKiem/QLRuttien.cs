@@ -16,5 +16,10 @@ namespace QLGuiTietKiem
         {
             InitializeComponent();
         }
+
+        private void QLRuttien_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
