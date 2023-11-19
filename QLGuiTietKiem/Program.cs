@@ -16,7 +16,7 @@ namespace QLGuiTietKiem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new QLloaiso());
+            Application.Run(new Home());
         }
     }
 }
